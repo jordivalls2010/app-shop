@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('body-class','signup-page');
+@section('body_class','signup-page')
 
 @section('content')
     <div class="header header-filter" style="background-image: url('{{asset('/img/city.jpg')}}'); background-size: cover; background-position: top center;">
@@ -13,6 +13,7 @@
 
                             <div class="header header-primary text-center">
                                 <h4>Inicio de sesión</h4>
+                                <!--
                                 <div class="social-line">
                                     <a href="#pablo" class="btn btn-simple btn-just-icon">
                                         <i class="fa fa-facebook-square"></i>
@@ -24,6 +25,7 @@
                                         <i class="fa fa-google-plus"></i>
                                     </a>
                                 </div>
+                                -->
                             </div>
                             <p class="text-divider">Introduce tus datos</p>
                             <div class="content">
@@ -33,6 +35,7 @@
                                     <span class="input-group-addon">
                                         <i class="material-icons">email</i>
                                     </span>
+
                                     <input id="email" type="email" class="form-control" placeholder="Email..." name="email" value="{{ old('email') }}" required autofocus>
 
                                 </div>

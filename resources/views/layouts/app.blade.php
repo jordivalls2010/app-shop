@@ -21,7 +21,7 @@
 
 </head>
 
-<body class="signup-page">
+<body class="@yield('body_class')">
 
 	<nav class="navbar navbar-transparent navbar-absolute">
     	<div class="container">
@@ -33,21 +33,36 @@
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
         		</button>
-        		<a class="navbar-brand" href="http://www.creative-tim.com">Creative Tim</a>
+        		<a class="navbar-brand" href="{{ url('/')}}">App Shop</a>
         	</div>
 
         	<div class="collapse navbar-collapse" id="navigation-example">
         		<ul class="nav navbar-nav navbar-right">
-					<li>
-    					<a href="../components-documentation.html" target="_blank">
-    						Components
-    					</a>
-    				</li>
-    				<li>
-						<a href="http://demos.creative-tim.com/material-kit-pro/presentation.html?ref=utp-freebie" target="_blank">
-							<i class="material-icons">unarchive</i> Upgrade to PRO
+					<!-- Authentication Links -->
+					@guest
+					<li><a href="{{ route('login') }}">Login</a></li>
+					<li><a href="{{ route('register') }}">Register</a></li>
+					@else
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+							{{ Auth::user()->name }} <span class="caret"></span>
 						</a>
-    				</li>
+
+						<ul class="dropdown-menu">
+							<li>
+								<a href="{{ route('logout') }}"
+									onclick="event.preventDefault();
+												document.getElementById('logout-form').submit();">
+									Desconectarse
+								</a>
+
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+									{{ csrf_field() }}
+								</form>
+							</li>
+						</ul>
+					</li>
+					@endguest
 		            <li>
 		                <a href="https://twitter.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
 							<i class="fa fa-twitter"></i>
@@ -75,9 +90,9 @@
 
 </body> 
 	<!--   Core JS Files   -->
-	<script src="{{asset('/assets/js/jquery.min.js')}}" type="text/javascript"></script>
-	<script src="{{asset('js/bootstrap.min.js')}}" type="text/javascript"></script>
-	<script src="{{asset('js/material.min.js')}}"></script>
+	<script src="{{asset('/js/jquery.min.js')}}" type="text/javascript"></script>
+	<script src="{{asset('/js/bootstrap.min.js')}}" type="text/javascript"></script>
+	<script src="{{asset('/js/material.min.js')}}"></script>
 
 	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 	<script src="{{asset('/js/nouislider.min.js')}}" type="text/javascript"></script>
