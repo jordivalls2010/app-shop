@@ -37,25 +37,25 @@
                                 <th>Nombre</th>
                                 <th class="col-md-4">Descripción</th>
                                 <th>Categoria</th>
-                                <th class="text-right">Precio</th>
-                                <th class="text-right">Opciones</th>
+                                <th class="text-center">Precio</th>
+                                <th class="text-center">Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($products as $product)
                                 <tr>
-                                    <td class="text-center">{{$product->id}}</td>
-                                    <td>{{$product->name}}</td>
-                                    <td>{{$product->description}}</td>
-                                    <td>{{$product->category ? $product->category->name : 'General'}}</td>
-                                    <td class="text-right">&euro; {{$product->price}}</td>
-                                    <td class="td-actions text-right">
+                                    <td class="text-center active">{{$product->id}}</td>
+                                    <td class="text-left">{{$product->name}}</td>
+                                    <td class="text-left">{{$product->description}}</td>
+                                    <td class="text-left">{{$product->category ? $product->category->name : 'General'}}</td>
+                                    <td class="text- active">&euro; {{$product->price}}</td>
+                                    <td class="td-actions text-center">
                                         <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
                                             <i class="fa fa-info"></i>
                                         </button>
-                                        <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                                        <a href="{{ url('/admin/products/'.$product->id.'/edit')}}" type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
                                             <i class="fa fa-edit"></i>
-                                        </button>
+                                        </a>
                                         <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
                                             <i class="fa fa-times"></i>
                                         </button>
