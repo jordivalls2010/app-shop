@@ -16,8 +16,20 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         // Model factories
-        factory(Category::class,5)->create();
+        /*factory(Category::class,5)->create();
         factory(Product::class,100)->create();
-        factory(ProductImages::class,200)->create();        
+        factory(ProductImages::class,200)->create();        */
+
+        $categories = factory(Category::class,5)->create();
+
+        $categories->each(function ($category) {
+            $products = factory(Product::class,20)->make(); //not persist in DB , we create only as an objects
+            $category->products()->saveMany($products); // here the products created in DB , not in the before sentence.
+
+            $products->each(function($product) {
+                $images = factory(ProductImages::class,5)->make();     
+                 $product->images()->saveMany($images);
+            });
+        });
     }
 }
