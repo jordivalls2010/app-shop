@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','App Shop : Login')
+
 @section('body_class','signup-page')
 
 @section('content')
