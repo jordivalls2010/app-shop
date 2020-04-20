@@ -12,6 +12,7 @@ class TestController extends Controller
         
         $products = Product::all();
         //$products_images = ProductImages::Product();
+        
         return view('welcome')->with(compact('products'));
 
     }

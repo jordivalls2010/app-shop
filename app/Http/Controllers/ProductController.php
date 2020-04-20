@@ -19,6 +19,25 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
+        
+        //Validar datos
+        $messages = [
+            'name.required' => 'El nombre es requerido',
+            'name.min' => 'el nombre ha de tener almenos 3 carácteres!',
+            'description.required' => 'La descripción es requerida!',
+            'description.min' => 'La descripción ha de tener almenos 10 carácteres!',
+            'price.required' => 'El precio es requerido!',
+            'price.numeric' => 'El precio ha de ser numérico!',
+            'price.min' => 'El precio ha de ser maoyor que cero!'
+        ];
+
+        $rules = [
+            'name' => 'required|min:3',
+            'description' => 'required|min:10',
+            'price' => 'required|numeric|min:0'
+        ];
+        $this->validate($request, $rules, $messages);
+
         //Registrar nuevo producto
 
         //dd($request->all());
@@ -41,9 +60,28 @@ class ProductController extends Controller
         }
     
         public function update(Request $request, $id){
+           
+            //Validar datos
+            $messages = [
+                'name.required' => 'El nombre es requerido',
+                'name.min' => 'el nombre ha de tener almenos 3 carácteres!',
+                'description.required' => 'La descripción es requerida!',
+                'description.min' => 'La descripción ha de tener almenos 10 carácteres!',
+                'price.required' => 'El precio es requerido!',
+                'price.numeric' => 'El precio ha de ser numérico!',
+                'price.min' => 'El precio ha de ser maoyor que cero!'
+            ];
+
+            $rules = [
+                'name' => 'required|min:3',
+                'description' => 'required|min:10',
+                'price' => 'required|numeric|min:0'
+            ];
+            $this->validate($request, $rules, $messages);
+
+            
             //Registrar nuevo producto
     
-            //dd($request->all());
             $product = Product::find($id);
 
             $product->name = $request->input('name');
@@ -56,4 +94,13 @@ class ProductController extends Controller
             return redirect('/admin/products');
         }
 
+        public function destroy($id){
+            //Eliminar producto
+    
+            $product = Product::find($id);
+            $product->delete();//Insert
+    
+            return back();//redirect('/admin/products');
+        }
+    
    }
