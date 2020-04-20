@@ -8,6 +8,8 @@ use App\ProductImages;
 
 class TestController extends Controller
 {
+
+    
     public function welcome(){
         
         $products = Product::all();

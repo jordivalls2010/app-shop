@@ -48,7 +48,7 @@ class ProductController extends Controller
         $product->price = $request->input('price');
         $product->long_description = $request->input('long_description'); 
 
-        $product->save();//Insert
+        $product->save();//Insert   
 
         return redirect('/admin/products');
     }
