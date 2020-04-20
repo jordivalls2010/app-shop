@@ -50,6 +50,14 @@
 
 						<ul class="dropdown-menu">
 							<li>
+								<a href="{{ url('/home') }}">Dashboard</a>	
+							</li>
+							@if (auth()->user()->admin)
+							<li>
+								<a href="{{ url('/admin/products') }}">Gestionar productos</a>
+							</li>	
+							@endif
+							<li>
 								<a href="{{ route('logout') }}"
 									onclick="event.preventDefault();
 												document.getElementById('logout-form').submit();">
@@ -89,6 +97,9 @@
 
 
 </body> 
+
+
+
 	<!--   Core JS Files   -->
 	<script src="{{asset('/js/jquery.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('/js/bootstrap.min.js')}}" type="text/javascript"></script>
