@@ -24,7 +24,10 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function () {
     Route::post('/products', 'ProductController@store'); //registrar productos
     Route::get('/products/{id}/edit', 'ProductController@edit'); //formulario de modificación de  productos
     Route::post('/products/{id}/edit', 'ProductController@update'); //registrar productos
-
     Route::delete('/admin/products/{id}', 'ProductController@destroy'); //eliminar productos
+
+    Route::get('/products/{id}/images', 'ImageController@index'); //Listar imágenes
+    Route::post('/products/{id}/images', 'ImageController@store'); //registrar imagenes
+    Route::delete('/products/{id}/images', 'ImageController@destroy'); //eliminar imagenes
 });
 

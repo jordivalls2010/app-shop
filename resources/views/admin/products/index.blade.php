@@ -34,8 +34,8 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th>Nombre</th>
-                                <th class="col-md-4">Descripción</th>
+                                <th class="col-md-2">Nombre</th>
+                                <th class="col-md-5">Descripción</th>
                                 <th>Categoria</th>
                                 <th class="text-center">Precio</th>
                                 <th class="text-center">Opciones</th>
@@ -60,6 +60,9 @@
                                             </a>
                                             <a href="{{ url('/admin/products/'.$product->id.'/edit')}}" type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
                                                 <i class="fa fa-edit"></i>
+                                            </a>
+                                            <a href="{{ url('/admin/products/'.$product->id.'/images')}}" type="button" rel="tooltip" title="Product images" class="btn btn-warning btn-simple btn-xs">
+                                                <i class="fa fa-image"></i> 
                                             </a>
                                             <button type="submit" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
                                                 <i class="fa fa-times"></i>
