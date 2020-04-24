@@ -41,10 +41,16 @@ d
                     <div class="panel panel-default">
                     
                         <div class="panel-body">
-                        
-                            <img src="{{ $image->url }}" width="250px">
-                            <button type="submit" class="btn btn-danger btn-round">Eliminar imagen</button>
-        
+                            
+                            <form method="post" action="" name="delete_product">
+                                {{ csrf_field() }} 
+                                {{ method_field('DELETE')}}
+                                
+                                <input type="hidden" name="image_id" value="{{ $image->id }}">
+                                <img src="{{ $image->url }}" width="250px">
+                                <button type="submit" class="btn btn-danger btn-round">Eliminar imagen</button>
+                            </form>
+
                         </div>
                     
                     </div>
