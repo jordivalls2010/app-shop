@@ -49,8 +49,17 @@ d
                                 <input type="hidden" name="image_id" value="{{ $image->id }}">
                                 <img src="{{ $image->url }}" width="250px">
                                 <button type="submit" class="btn btn-danger btn-round">Eliminar imagen</button>
+                                @if (!$image->featured)
+                                    <a href="{{ url('/admin/products/'.$product->id.'/images/select/'.$image->id) }}" class="btn btn-primary btn-fab btn-fab-mini btn-round">
+                                        <i class="material-icons">favorite</i>
+                                    </a>  
+                                @else 
+                                    <button type="button" class="btn btn-info btn-fab btn-fab-mini btn-round" rel="tooltip" title="Imagen destacada actualmente">
+                                        <i class="material-icons">favorite</i>
+                                    </button>  
+                                @endif
+                                
                             </form>
-
                         </div>
                     
                     </div>
