@@ -74,7 +74,7 @@
                   
                     <div class="col-md-4">
                         <div class="team-player">
-                            <img src="{{ $product->images()->first()->image }}" alt="Thumbnail Image" class="img-raised img-circle">
+                            <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-circle" width="250px">
                             <h4 class="title">{{ $product->name }} <br />
                                 <small class="text-muted">{{ $product->category->name}}</small>
                             </h4>
