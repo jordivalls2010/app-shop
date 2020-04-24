@@ -15,19 +15,19 @@
                 <br />
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-danger btn-raised btn-lg">
                     <i class="fa fa-play"></i> Cómo funciona?
-                </a>
+                </a> 
             </div>
         </div>-->
     </div>
 </div>
-
+d
 <div class="main main-raised">
     <div class="container">
 
         <div class="section text-center">
-            <h2 class="title">Imágenes del producto seleccionado</h2>
+            <h2 class="title">Imágenes del producto "{{$product->name}}"</h2>
 
-            <form method="post" action="">
+            <form method="post" action="" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 <input type="file" name="photo" required>
@@ -42,7 +42,7 @@
                     
                         <div class="panel-body">
                         
-                            <img src="{{ $image->image }}" width="50%">
+                            <img src="{{ $image->url }}" width="250px">
                             <button type="submit" class="btn btn-danger btn-round">Eliminar imagen</button>
         
                         </div>
