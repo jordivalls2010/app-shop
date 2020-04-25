@@ -17,7 +17,7 @@ class CreateCartDetailsTable extends Migration
             $table->increments('id');
 
             $table->integer('quantity')->unsigned()->default(0);
-            $table->integer('discount')->unsigned()->default(0);//% int
+            $table->integer('discount')->default(0);//% int
 
             // FK
              $table->integer('cart_id')->unsigned();

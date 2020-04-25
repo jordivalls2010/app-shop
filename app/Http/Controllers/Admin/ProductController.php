@@ -100,7 +100,7 @@ class ProductController extends Controller
             //Eliminar producto
     
             $product = Product::find($id);
-            $product->delete();//Insert
+            $product->delete();//Delete
     
             return back();//redirect('/admin/products');
         }

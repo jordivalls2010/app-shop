@@ -17,7 +17,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/{id}', 'ProductController@show'); //Listar imágenes
-    
+
+Route::post('/cart', 'CartDetailController@store')->name('store'); //añadir al carrito
+Route::delete('/cart', 'CartDetailController@destroy')->name('destroy'); //añadir al carrito
  
 Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(function () {
     Route::get('/products', 'ProductController@index'); //listar productos

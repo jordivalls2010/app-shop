@@ -114,8 +114,9 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title" id="myModalLabel">Seleccione la cantidad que desea agregar</h4>
         </div>
-        <form method="post" action="">
-            @csrf_field()
+        <form method="post" action="{{ url('/cart') }}">
+            {{ csrf_field() }}
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
             <div class="modal-body">
                 <input type="number" name="quantity" value="0" class="form-control">
             </div>
